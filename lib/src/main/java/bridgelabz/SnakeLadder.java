@@ -7,26 +7,32 @@ public class SnakeLadder {
 	public static void main(String[] args) {
 		int player_position = 0;
 		int count = 1;
-		for ( int dice = 0; player_position < winning_points; dice++ )
-		{
-			int random = (int)(Math.random()*6) + 1;
-			int check = (int)(Math.random()*3);
-			int result = 0;	
-			switch ( check ){
-					case ladder:
-					if( (player_position + random) <= 100 ){
-						player_position += random; }
-					else
-						player_position += 0;
-					break;
-				case snake:
-					result -= random;
-					break;
-				default:
-					result = 0;
-			}
+			// printing the random Variable(1-6) as dies 
+		for ( int dice = 0; player_position < winning_points; dice++ ){
+		int random = (int)(Math.random()*6) + 1;
+			// Checking for random values to set Ladder and Snake
+		int check = (int)(Math.random()*3);
+			// the function of ladder and snake
+		int result = 0;	
+		switch ( check ){
+			// Checking in the ladder to get the exact winning position
+			case ladder:
+				if( (player_position + random) <= 100 ){
+					player_position += random; }
+				else
+					player_position += 0;
+				break;
+			case snake:
+				result -= random;
+				break;
+			default:
+				result = 0;
+
+		}
+			//player_position += result;
 		player_position = player_position + result;
+		count++;
 		}
-		System.out.println("Winning Position of Player : " +player_position+ " WINNNER "+"\n");
-		}
+		System.out.println("Winning Position of Player : " +player_position+ " WINNNER "+"\n"+"No.of times the dice rolled : "+count);
+}
 }
